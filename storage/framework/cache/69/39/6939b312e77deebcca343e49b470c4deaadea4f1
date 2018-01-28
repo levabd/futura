@@ -1,0 +1,29 @@
+1517232507a:1:{s:9:"error.htm";a:8:{s:8:"fileName";s:9:"error.htm";s:7:"content";s:570:"title = "Error page (500)"
+url = "/error"
+layout = "default"
+==
+<div id="error404">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-4">
+                <h3>Ошибка на сервере</h3>
+				<b>Ошибка 500.</b> Что-то пошло не так, но наши инженеры уже исправляют ситуацию
+            </div>
+			<div class="col-4">
+                <img src="{{ 'assets/images/404.svg'|theme }}" />
+            </div>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1517225473;s:6:"markup";s:506:"<div id="error404">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-4">
+                <h3>Ошибка на сервере</h3>
+				<b>Ошибка 500.</b> Что-то пошло не так, но наши инженеры уже исправляют ситуацию
+            </div>
+			<div class="col-4">
+                <img src="{{ 'assets/images/404.svg'|theme }}" />
+            </div>
+        </div>
+    </div>
+</div>";s:4:"code";N;s:5:"title";s:16:"Error page (500)";s:3:"url";s:6:"/error";s:6:"layout";s:7:"default";}}
