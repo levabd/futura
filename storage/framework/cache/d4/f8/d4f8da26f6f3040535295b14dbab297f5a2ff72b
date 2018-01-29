@@ -1,8 +1,0 @@
-1517232507a:1:{s:10:"thanks.htm";a:9:{s:8:"fileName";s:10:"thanks.htm";s:7:"content";s:136:"title = "Спасибо за регистрацию проекта"
-url = "/thanks"
-layout = "default"
-is_hidden = 0
-==
-
-Спасибо
-";s:5:"mtime";i:1517231647;s:6:"markup";s:14:"Спасибо";s:4:"code";N;s:5:"title";s:57:"Спасибо за регистрацию проекта";s:3:"url";s:7:"/thanks";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";}}
