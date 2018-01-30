@@ -6,8 +6,8 @@ is_hidden = 0
 
 <!-- Navigation -->
 <header id="layout-header" class="fixed-top">
-	<nav class="navbar navbar-expand-md fixed-top container" id="navbar">
-		<a href="{{ 'home'|page }}" class="navbar-brand"></a>
+	<nav class="navbar navbar-expand-md fixed-top" id="navbar">
+		<a href="{{ 'home'|page }}" class="navbar-brand"><img src="{{ 'assets/images/futura-logo.png'|theme }}"></img></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarMobileNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -35,7 +35,23 @@ is_hidden = 0
 	<div class="section">Определённый раздел</div>
 	<div class="section">Определённый раздел</div>
 	<div class="section fp-auto-height-responsive">Определённый раздел</div>
-	<div class="section fp-auto-height-responsive">Определённый раздел</div>
+	<div class="section fp-auto-height-responsive footer">
+		<div class="container">
+			<div class="row justify-content-around">
+				<div class="col-10 col-lg-3 order-2 order-lg-1 text-center text-lg-left align-text-bottom">
+					<i class="fas fa-phone-volume" data-fa-transform="rotate--30" style="font-size:20px; color:#f66367"></i>&nbsp;&nbsp;&nbsp;+380 (44) 490-54-80
+				</div>
+				<div class="col-10 col-lg-2 order-1 order-lg-2 text-center">
+					<img src="{{ 'assets/images/futura-footer-logo.png'|theme }}"></img>
+				</div>
+				<div class="col-10 col-lg-3 order-3 order-lg-3 text-center text-lg-right align-text-bottom">
+					<i class="far fa-envelope" style="font-size:20px; color:#f66367"></i>&nbsp;&nbsp;&nbsp;info@futura.org.ua
+				</div>
+			</div>
+			<hr />
+			<p class="copyright text-center">&copy; {{ "now"|date("Y") }} {{ 'Фонд культури та інновацій Futura'|_ }}</p>
+		</div>
+	</div>
 </div>
 
 {% put scripts %}

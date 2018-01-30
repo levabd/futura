@@ -2,7 +2,6 @@
 *.log
 storage/framework/cache/
 storage/framework/sessions/
-storage/cms/twig/d4/d46ed2f84860776c1112302d1bdeffb57d36a6f283f38f6f86ce58a8d60a6565.php
 storage/cms/combiner/assets/
 storage/cms/cache/
 storage/cms/twig/

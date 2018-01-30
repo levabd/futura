@@ -53,7 +53,7 @@
         sectionsColor: ['transparent', '#F3F6FF', '#FFF', '#F3F6FF', '#FFF'],
         paddingTop: '0',
         paddingBottom: '0',
-        fixedElements: '#header, .footer',
+        fixedElements: '#header, #footer',
         responsiveWidth: 0,
         responsiveHeight: 0,
         responsiveSlides: false,
@@ -78,12 +78,30 @@
             if (index == 1 && direction == 'down') {
                 onHead = false;
                 $("#layout-header").animate({
-                    "background-color": '#FD7D70'
+                    "background-color": '#f66367',
+                    "height": "100px"
                 });
+
+                $(".navbar-brand img").attr("src", rootPath + '/themes/futura/assets/images/futura-logo-small.png');
+
+                if ($(window).width() < 992) {
+                    $(".navbar-nav").animate({
+                        "background-color": "#f66367 !important"
+                    });
+                }
             } else if (index == 2 && direction == 'up') {
                 $("#layout-header").animate({
-                    "background-color": 'transparent'
+                    "background-color": 'transparent',
+                    "height": "150px"
                 });
+
+                $(".navbar-brand img").attr("src", rootPath + '/themes/futura/assets/images/futura-logo.png');
+
+                if ($(window).width() < 992) {
+                    $(".navbar-nav").animate({
+                        "background-color": "transparent !important"
+                    });
+                }
                 onHead = true;
             }
         },
@@ -98,7 +116,7 @@
 
     $(".navbar .nav-item, .navbar .nav-item a").mouseover(function() {
         if (!onHead) {
-            $(this).css("color", "#ffd8d4")
+            $(this).css("color", "#f66367")
         }
     }).mouseout(function() {
         if (!onHead) {
