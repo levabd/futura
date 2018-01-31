@@ -35,7 +35,7 @@
         resetSliders: false,
         fadingEffect: false,
         normalScrollElements: null,
-        scrollOverflow: false,
+        scrollOverflow: true,
         scrollOverflowReset: false,
         scrollOverflowOptions: null,
         touchSensitivity: 15,
@@ -116,7 +116,7 @@
 
     $(".navbar .nav-item, .navbar .nav-item a").mouseover(function() {
         if (!onHead) {
-            $(this).css("color", "#f66367")
+            $(this).css("color", "#ff9fa2")
         }
     }).mouseout(function() {
         if (!onHead) {

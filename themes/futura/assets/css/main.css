@@ -2,7 +2,37 @@
 
 body,
 html {
-    color: #4a5665;
+    color: #444c56;
+}
+
+.btn-primary {
+    background-color: rgb(246, 100, 105) !important;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2rem;
+    color: #fff;
+    font: 400 18px 'Ubuntu', sans-serif;
+    -moz-box-shadow: 0 8px 8px 0 rgba(246, 100, 105, 0.1);
+    -webkit-box-shadow: 0 8px 8px 0 rgba(246, 100, 105, 0.1);
+    box-shadow: 0 8px 8px 0 rgba(246, 100, 105, 0.1);
+    padding: 1.1rem 4.0625rem;
+    letter-spacing: normal;
+}
+
+.btn-primary:hover {
+    background-color: #fa3e45 !important;
+}
+
+.section h3 {
+    font: 700 48px/1.1 'Ubuntu', sans-serif;
+}
+
+.section h5 {
+    font: 300 26px/1.3 'Ubuntu', sans-serif;
+}
+
+.section p {
+    font: 300 22px/1.3 'Ubuntu', sans-serif;
 }
 
 
@@ -102,7 +132,7 @@ html {
 
 .navbar-collapse {
     font: 700 18px'Ubuntu', sans-serif;
-    text-transform: uppercase;
+    margin-left: -190px;
 }
 
 .navbar-collapse .active {
@@ -156,23 +186,60 @@ html {
     background-image: url(../images/head.png);
     background-size: cover;
     background-position: 0 30%;
+    font: 700 16px/8 'Ubuntu', serif;
+    color: #fff;
+    letter-spacing: 4px;
+}
+
+.head strong {
+    color: #f66367;
+}
+
+.head h1 {
+    font: 700 60px/1.1 'Ubuntu', serif;
+    letter-spacing: normal;
+}
+
+
+/*---------------------- Work --------------------*/
+
+.work-arrow {
+    max-width: 4rem;
+}
+
+.work figure img {
+    max-height: 8rem;
+}
+
+.work figure figcaption {
+    font: 300 20px/1.3 'Ubuntu', serif;
+}
+
+
+/*--------------------- Capacity ------------------*/
+
+.capacity p {
+    color: #717881;
+}
+
+.capacity h5 {
+    font: 500 30px/1.3 'Ubuntu', serif;
+    color: #717881;
+}
+
+
+/*---------------------- Goals --------------------*/
+
+.goal h5 {
+    font: 500 30px/1.3 'Ubuntu', serif;
 }
 
 
 /*--------------------- Footer --------------------*/
 
 .footer {
-    padding: 40px 0 30px 0;
     font: 500 18px/1 'Ubuntu', serif;
     background-color: #F3F6FF !important;
-}
-
-.footer hr {
-    margin: 74px 0 35px 0;
-}
-
-.footer .align-text-bottom {
-    padding-top: 90px;
 }
 
 .footer .copyright {
@@ -180,13 +247,13 @@ html {
 }
 
 @media only screen and (max-width: 992px) {
-    .footer .align-text-bottom {
-        padding-top: 15px;
+    #fp-nav {
+        display: none;
     }
 }
 
-@media only screen and (max-width: 800px) {
-    #fp-nav {
-        display: none;
+@media only screen and (max-width: 768px) {
+    .navbar-collapse {
+        margin-left: 0;
     }
 }

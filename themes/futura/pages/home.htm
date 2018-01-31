@@ -1,4 +1,4 @@
-title = "Место для идей"
+title = "Місце для ідей"
 url = "/"
 layout = "default"
 is_hidden = 0
@@ -11,19 +11,19 @@ is_hidden = 0
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarMobileNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
+		<div class="collapse navbar-collapse text-uppercase" id="navbarNav">
 			<ul class="navbar-nav mx-auto" id="menu">
 				<li data-menuanchor="about" class="nav-item text-center">
-					<a class="nav-link" href="#about">{{ 'Що таке Futura'|_ }}</a>
+					<a class="nav-link px-4" href="{{ 'home'|page }}#about">{{ 'Що таке Futura'|_ }}</a>
 				</li>
 				<li data-menuanchor="work" class="nav-item text-center">
-					<a class="nav-link" href="#work">{{ 'Як це працює'|_ }}</a>
+					<a class="nav-link px-4" href="{{ 'home'|page }}#work">{{ 'Як це працює'|_ }}</a>
 				</li>
 				<li data-menuanchor="capacity" class="nav-item text-center">
-					<a class="nav-link" href="#capacity">{{ 'Наші компетенції'|_ }}</a>
+					<a class="nav-link px-4" href="{{ 'home'|page }}#capacity">{{ 'Наші компетенції'|_ }}</a>
 				</li>
 				<li data-menuanchor="goals" class="nav-item text-center">
-					<a class="nav-link" href="#goals">{{ 'Наш фокус'|_ }}</a>
+					<a class="nav-link px-4" href="{{ 'home'|page }}#goals">{{ 'Наш фокус'|_ }}</a>
 				</li>
 			</ul>
 		</div>
@@ -31,25 +31,36 @@ is_hidden = 0
 </header>
 
 <div id="fullpage">
-	<div class="section head">Определённый раздел</div>
-	<div class="section">Определённый раздел</div>
-	<div class="section">Определённый раздел</div>
-	<div class="section fp-auto-height-responsive">Определённый раздел</div>
-	<div class="section fp-auto-height-responsive footer">
-		<div class="container">
-			<div class="row justify-content-around">
-				<div class="col-10 col-lg-3 order-2 order-lg-1 text-center text-lg-left align-text-bottom">
-					<i class="fas fa-phone-volume" data-fa-transform="rotate--30" style="font-size:20px; color:#f66367"></i>&nbsp;&nbsp;&nbsp;+380 (44) 490-54-80
+	<div class="section head text-uppercase">
+		{% content "home_head.htm" rootpath=rootPath %}
+	</div>
+	<div class="section">
+		{% content "home_about.htm" rootpath=rootPath %}
+	</div>
+	<div class="section work">
+		{% content "home_work.htm" rootpath=rootPath %}
+	</div>
+	<div class="section fp-auto-height-responsive capacity">
+		{% content "home_capacity.htm" rootpath=rootPath %}
+	</div>
+	<div class="section fp-auto-height-responsive goal">
+		{% content "home_goals.htm" rootpath=rootPath %}
+		<div class="footer pt-5 pb-4">
+			<div class="container">
+				<div class="row justify-content-around">
+					<div class="pt-3 pt-lg-6 col-10 col-lg-3 order-2 order-lg-1 text-center text-lg-left align-text-bottom">
+						<i class="fas fa-phone-volume" data-fa-transform="rotate--30" style="font-size:20px; color:#f66367"></i>&nbsp;&nbsp;&nbsp;+380 (44) 490-54-80
+					</div>
+					<div class="col-10 col-lg-2 order-1 order-lg-2 text-center">
+						<img src="{{ 'assets/images/futura-footer-logo.png'|theme }}"></img>
+					</div>
+					<div class="pt-3 pt-lg-6 col-10 col-lg-3 order-3 order-lg-3 text-center text-lg-right align-text-bottom">
+						<i class="far fa-envelope" style="font-size:20px; color:#f66367"></i>&nbsp;&nbsp;&nbsp;info@futura.org.ua
+					</div>
 				</div>
-				<div class="col-10 col-lg-2 order-1 order-lg-2 text-center">
-					<img src="{{ 'assets/images/futura-footer-logo.png'|theme }}"></img>
-				</div>
-				<div class="col-10 col-lg-3 order-3 order-lg-3 text-center text-lg-right align-text-bottom">
-					<i class="far fa-envelope" style="font-size:20px; color:#f66367"></i>&nbsp;&nbsp;&nbsp;info@futura.org.ua
-				</div>
+				<hr class="mt-6 mb-4"/>
+				<p class="py-2 copyright text-center">&copy; {{ "now"|date("Y") }} {{ 'Фонд культури та інновацій Futura'|_ }}</p>
 			</div>
-			<hr />
-			<p class="copyright text-center">&copy; {{ "now"|date("Y") }} {{ 'Фонд культури та інновацій Futura'|_ }}</p>
 		</div>
 	</div>
 </div>
