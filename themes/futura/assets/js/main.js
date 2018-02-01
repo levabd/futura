@@ -79,10 +79,19 @@
                 onHead = false;
                 $("#layout-header").animate({
                     "background-color": '#f66367',
-                    "height": "100px"
+                    "height": "60px"
                 });
 
-                $(".navbar-brand img").attr("src", rootPath + '/themes/futura/assets/images/futura-logo-small.png');
+                $(".navbar-brand").animate({
+                    "padding-top": "0",
+                    "padding-left": "0"
+                });
+
+                $(".nav-link").animate({
+                    "padding-top": "0"
+                });
+
+                $(".navbar-brand img").attr("src", rootPath + '/themes/futura/assets/images/futura-logo-extra-small.png');
 
                 if ($(window).width() < 992) {
                     $(".navbar-nav").animate({
@@ -93,6 +102,15 @@
                 $("#layout-header").animate({
                     "background-color": 'transparent',
                     "height": "150px"
+                });
+
+                $(".navbar-brand").animate({
+                    "padding-top": "10px",
+                    "padding-left": "50px"
+                });
+
+                $(".nav-link").animate({
+                    "padding-top": "0.5rem"
                 });
 
                 $(".navbar-brand img").attr("src", rootPath + '/themes/futura/assets/images/futura-logo.png');
