@@ -3,5 +3,197 @@ url = "/apply"
 layout = "default"
 is_hidden = 0
 ==
+<?
+use RainLab\Translate\Models\Message;
 
-Спасибо
+function onRegistrationForm(){
+
+	$date = explode(".", date("H:i:s d.m.Y"));
+    switch ($date[1]){
+        case 1: $m='січня'; break;
+        case 2: $m='лютого'; break;
+        case 3: $m='березня'; break;
+        case 4: $m='квітня'; break;
+        case 5: $m='травня'; break;
+        case 6: $m='червня'; break;
+        case 7: $m='липня'; break;
+        case 8: $m='серпня'; break;
+        case 9: $m='вересня'; break;
+        case 10: $m='жовтня'; break;
+        case 11: $m='листопада'; break;
+        case 12: $m='грудня'; break;
+    };
+
+	$vars = [
+        'name'=> request('name'),
+        'email'=> request('email'),
+        'phone'=> request('phone'),
+		'description'=> request('description'),
+		'category'=> request('category'),
+		'ukdate'=> $date[0].' '.$m.' '.$date[2],
+    ];
+
+	foreach (['info@futura.org.ua', 'info@media-systems.com.ua', 'v.maly@media-systems.com.ua'] as $mailRecipient){
+		Mail::send('levabd.mailtemplates::mail.order', $vars, function($message) use($mailRecipient, $vars) {
+			$message->to($mailRecipient, $vars['name']);
+		});
+	}
+
+    return response('success', 200);
+}
+?>
+==
+<!-- Navigation -->
+<header id="layout-header" class="header-pages">
+	<nav class="navbar navbar-expand-md" id="navbar">
+		<a href="{{ 'home'|page }}" class="navbar-brand"><img src="{{ 'assets/images/futura-logo.png'|theme }}"></img></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarMobileNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse text-uppercase" id="navbarNav">
+			<ul class="navbar-nav mx-auto" id="menu">
+				<li data-menuanchor="about" class="nav-item text-center">
+					<a class="nav-link px-4" href="{{ 'home'|page }}#about">{{ 'Що таке Futura'|_ }}</a>
+				</li>
+				<li data-menuanchor="work" class="nav-item text-center">
+					<a class="nav-link px-4" href="{{ 'home'|page }}#work">{{ 'Як це працює'|_ }}</a>
+				</li>
+				<li data-menuanchor="capacity" class="nav-item text-center">
+					<a class="nav-link px-4" href="{{ 'home'|page }}#capacity">{{ 'Наші компетенції'|_ }}</a>
+				</li>
+				<li data-menuanchor="goals" class="nav-item text-center">
+					<a class="nav-link px-4" href="{{ 'home'|page }}#goals">{{ 'Наш фокус'|_ }}</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<form class="container text-center py-7" id="registration-form">
+	<h1 class="mb-5">{{ 'Зареєструвати проект'|_ }}</h1>
+	<div class="form-group required row justify-content-center">
+		<label class="col-sm-3 text-left text-sm-right">{{ 'Прізвище, ім`я'|_ }}:</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" name="name" id="name" required>
+		</div>
+		<div class="col-sm-1"></div>
+	</div>
+	<div class="form-group required row justify-content-center">
+		<label class="col-sm-3 text-left text-sm-right">E-mail:</label>
+		<div class="input-group col-sm-5">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroupPrepend2">@</span>
+			</div>
+			<input type="email" name="email" id="email" class="form-control" required>
+		</div>
+		<div class="col-sm-1"></div>
+	</div>
+	<div class="form-group required row justify-content-center">
+		<label class="col-sm-3 text-left text-sm-right">{{ 'Телефон'|_ }}:</label>
+		<div class="col-sm-5">
+			<input type="text" name="phone" id="phone" class="form-control" required>
+		</div>
+		<div class="col-sm-1"></div>
+	</div>
+	<div class="form-group row justify-content-center">
+		<div class="col-sm-7"><hr /></div>
+	</div>
+	<div class="form-group required row justify-content-center">
+		<div class="col-sm-7 text-left">
+			<label>{{ 'Коротко опишіть свою ідею (до 1000 знаків):'|_ }}</label>
+			<textarea class="form-control" name="description" id="description" rows="5"></textarea>
+		</div>
+	</div>
+	<div class="form-group row justify-content-center">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-2 text-left">
+			{{ 'Категорія проекту'|_ }}:
+		</div>
+		<div class="col-sm-3 text-left">
+			<input class="form-check-input" type="radio" name="categoryRadios" id="categoryRadios1" value="human" checked>
+			<label class="form-check-label" for="categoryRadios1">
+				{{ 'Людина / Здоров`я'|_ }}
+			</label>
+			<br />
+			<input class="form-check-input" type="radio" name="categoryRadios" id="categoryRadios2" value="option2">
+			<label class="form-check-label" for="categoryRadios2">
+				{{ 'Суспільство / Культура'|_ }}
+			</label>
+		</div>
+		<div class="col-sm-3 text-left">
+			<input class="form-check-input" type="radio" name="categoryRadios" id="categoryRadios3" value="option3">
+			<label class="form-check-label" for="categoryRadios3">
+				{{ 'Екологія / Природа'|_ }}
+			</label>
+			<br />
+			<input class="form-check-input" type="radio" name="categoryRadios" id="categoryRadios4" value="option4">
+			<label class="form-check-label" for="categoryRadios4">
+				{{ 'Наука / Інновації'|_ }}
+			</label>
+		</div>
+	</div>
+	<button type="submit" id="registration-form-submit" class="mt-4 btn btn-primary"><span id="button-default-div">{{ 'Надіслати'|_ }}</span><span style=" display: none;" id="button-load-div"><i class='fa fa-spinner fa-pulse'></i>&nbsp;&nbsp;{{ 'Заявка опрацьовується'|_ }}</span></button>
+</form>
+
+<div class="footer pt-5 pb-4">
+	<div class="container">
+		<div class="row justify-content-around">
+			<div class="pt-3 pt-lg-6 col-10 col-lg-3 order-2 order-lg-1 text-center text-lg-left align-text-bottom">
+				<i class="fas fa-phone-volume" data-fa-transform="rotate--30" style="font-size:20px; color:#f66367"></i>&nbsp;&nbsp;&nbsp;+380 (44) 490-54-80
+			</div>
+			<div class="col-10 col-lg-2 order-1 order-lg-2 text-center">
+				<img src="{{ 'assets/images/futura-footer-logo.png'|theme }}"></img>
+			</div>
+			<div class="pt-3 pt-lg-6 col-10 col-lg-3 order-3 order-lg-3 text-center text-lg-right align-text-bottom">
+				<i class="far fa-envelope" style="font-size:20px; color:#f66367"></i>&nbsp;&nbsp;&nbsp;info@futura.org.ua
+			</div>
+		</div>
+		<hr class="mt-6 mb-4"/>
+		<p class="py-2 copyright text-center">&copy; {{ "now"|date("Y") }} {{ 'Фонд культури та інновацій Futura'|_ }}</p>
+	</div>
+</div>
+
+{% put scripts %}
+<script>
+	(function() {
+		$('#registration-form-submit').click(function (e) {
+			e.preventDefault();
+			if($('#registration-form')[0].checkValidity() === false) {
+				return true;
+			}
+			$('#button-default-div').hide();
+			$('#button-load-div').show();
+
+			var $name = $('#name');
+			var $email = $('#email');
+			var $phone = $('#phone');
+			var $description = $('#description');
+			var category = "Людина / Здоров`я";
+			if ($('#categoryRadios2').attr('checked') == true) {
+				category = "Суспільство / Культура";
+			} else if ($('#categoryRadios3').attr('checked') == true) {
+				category = "Екологія / Природа";
+			} else if ($('#categoryRadios4').attr('checked') == true) {
+				category = "Наука / Інновації";
+			}
+			var $radio1 = $('#categoryRadios1');
+			var $radio2 = $('#categoryRadios2');
+			var $radio3 = $('#categoryRadios3');
+			var $radio4 = $('#categoryRadios4');
+			
+			$.request('onRegistrationForm', {
+				data: {
+					name: $name.val(),
+					email: $email.val(),
+					phone: $phone.val(),
+					description: $description.val(),
+					category: category
+				},
+				success: function (data) {
+					window.location.replace("{{ 'thanks'|page }}");
+				}
+			});
+		});
+	})();
+</script>
+{% endput %}

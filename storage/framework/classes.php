@@ -81,4 +81,5 @@
   'levabd\\sitemap\\Plugin' => 'plugins\\levabd\\sitemap\\Plugin.php',
   'levabd\\mailtemplates\\Plugin' => 'plugins\\levabd\\mailtemplates\\Plugin.php',
   'levabd\\sitemap1\\Plugin' => 'plugins\\levabd\\sitemap1\\Plugin.php',
+  'backend\\Controllers\\users' => 'modules\\backend\\controllers\\users.php',
 );
