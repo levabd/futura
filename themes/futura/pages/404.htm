@@ -2,16 +2,62 @@ title = "Page not found (404)"
 url = "/404"
 layout = "default"
 ==
-<div id="error404">
-    <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-4">
-                <h3>Страница не найдена</h3>
-				<b>Ошибка 404.</b> Неверный адрес, либо страница не существует
-            </div>
-			<div class="col-4">
-                <img src="{{ 'assets/images/404.svg'|theme }}" />
-            </div>
+
+<!-- Navigation -->
+<header id="layout-header" class="header-pages">
+	<nav class="navbar navbar-expand-md" id="navbar">
+		<a href="{{ 'home'|page }}" class="navbar-brand"><img src="{{ 'assets/images/futura-logo.png'|theme }}"></img></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarMobileNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse text-uppercase" id="navbarNav">
+			<ul class="navbar-nav mx-auto" id="menu">
+				<li data-menuanchor="about" class="nav-item text-center">
+					<a class="nav-link px-4" href="{{ 'home'|page }}#about">{{ 'Що таке Futura'|_ }}</a>
+				</li>
+				<li data-menuanchor="work" class="nav-item text-center">
+					<a class="nav-link px-4" href="{{ 'home'|page }}#work">{{ 'Як це працює'|_ }}</a>
+				</li>
+				<li data-menuanchor="capacity" class="nav-item text-center">
+					<a class="nav-link px-4" href="{{ 'home'|page }}#capacity">{{ 'Наші компетенції'|_ }}</a>
+				</li>
+				<li data-menuanchor="goals" class="nav-item text-center">
+					<a class="nav-link px-4" href="{{ 'home'|page }}#goals">{{ 'Наш фокус'|_ }}</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-11 text-center">
+            <h1>Сторінку не знайдено</h1>
+			<p>Спробуйте перейти на головну.</p>
         </div>
+		<div class="mt-5 col-5 col-lg-3 col-md-4 text-center">
+			<img src="{{ 'assets/images/work5.svg'|theme }}">
+        </div>
+		<div class="my-5 col-11 text-center">
+			<a class="btn btn-primary" href="{{ 'home'|page }}">{{ 'Закрити'|_ }}</a>
+		</div>
     </div>
+</div>
+
+<div class="footer pt-5 pb-4">
+	<div class="container">
+		<div class="row justify-content-around">
+			<div class="pt-3 pt-lg-6 col-10 col-lg-3 order-2 order-lg-1 text-center text-lg-left align-text-bottom">
+				<i class="fas fa-phone-volume" data-fa-transform="rotate--30" style="font-size:20px; color:#f66367"></i>&nbsp;&nbsp;&nbsp;+380 (44) 490-54-80
+			</div>
+			<div class="col-10 col-lg-2 order-1 order-lg-2 text-center">
+				<img src="{{ 'assets/images/futura-footer-logo.png'|theme }}"></img>
+			</div>
+			<div class="pt-3 pt-lg-6 col-10 col-lg-3 order-3 order-lg-3 text-center text-lg-right align-text-bottom">
+				<i class="far fa-envelope" style="font-size:20px; color:#f66367"></i>&nbsp;&nbsp;&nbsp;info@futura.org.ua
+			</div>
+		</div>
+		<hr class="mt-6 mb-4"/>
+		<p class="py-2 copyright text-center">&copy; {{ "now"|date("Y") }} {{ 'Фонд культури та інновацій Futura'|_ }}</p>
+	</div>
 </div>
